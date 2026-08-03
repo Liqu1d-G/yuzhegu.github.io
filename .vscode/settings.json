@@ -1,0 +1,88 @@
+{
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.recipe.default": "lastUsed",
+  "latex-workshop.latex.clean.command": "/Library/TeX/texbin/latexmk",
+  "latex-workshop.latex.build.forceRecipeUsage": false,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex -> build",
+      "tools": [
+        "pdflatex-build",
+        "copy-build-pdf"
+      ]
+    },
+    {
+      "name": "xelatex-cn -> build-cn",
+      "tools": [
+        "xelatex-cn-build",
+        "copy-build-cn-pdf"
+      ]
+    },
+    {
+      "name": "xelatex-zh -> build-zh",
+      "tools": [
+        "xelatex-zh-build",
+        "copy-build-zh-pdf"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex-build",
+      "command": "/Library/TeX/texbin/pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=%DIR%/build",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "xelatex-cn-build",
+      "command": "/Library/TeX/texbin/xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=%DIR%/build-cn",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "xelatex-zh-build",
+      "command": "/Library/TeX/texbin/xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=%DIR%/build-zh",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "copy-build-pdf",
+      "command": "/bin/cp",
+      "args": [
+        "%DIR%/build/%DOCFILE%.pdf",
+        "%DIR%/%DOCFILE%.pdf"
+      ]
+    },
+    {
+      "name": "copy-build-cn-pdf",
+      "command": "/bin/cp",
+      "args": [
+        "%DIR%/build-cn/%DOCFILE%.pdf",
+        "%DIR%/%DOCFILE%.pdf"
+      ]
+    },
+    {
+      "name": "copy-build-zh-pdf",
+      "command": "/bin/cp",
+      "args": [
+        "%DIR%/build-zh/%DOCFILE%.pdf",
+        "%DIR%/%DOCFILE%.pdf"
+      ]
+    }
+  ]
+}
